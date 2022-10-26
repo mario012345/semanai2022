@@ -59,7 +59,7 @@ func _physics_process(_delta):
 	animation_process()
 
 func animation_process():
-	$AnimatedSprite.Play()	
+	$AnimatedSprite.play()	
 	var animation_name = ""
 	if is_on_floor():
 		if abs(_velocity.x) > 0.1:
