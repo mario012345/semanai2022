@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/art/player/idle.png" type="Texture" id=1]
 [ext_resource path="res://assets/art/player/walk.png" type="Texture" id=2]
+[ext_resource path="res://src/Actors/Player.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -80,6 +81,12 @@ animations = [ {
 extents = Vector2( 67, 124 )
 
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 3 )
+action_suffix = null
+
+[node name="PlatformDetector" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 8
 
 [node name="WeaponAnimation" type="Timer" parent="."]
 wait_time = 0.2
@@ -88,8 +95,8 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-animation = "idle"
-frame = 2
+animation = "walk"
+frame = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -6, 2 )
