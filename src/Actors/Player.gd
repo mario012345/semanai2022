@@ -68,11 +68,11 @@ func animation_process():
 			animation_name = "idle"
 	else:
 		if _velocity.y > 0:
-			animation_name = "falling"
+			animation_name = "fall"
 		else:
-			animation_name = "jumping"
+			animation_name = "jump"
 	if is_attacking:
-		animation_name += "weapon"
+		animation_name = "weapon"
 	$AnimatedSprite.animation = animation_name
 
 

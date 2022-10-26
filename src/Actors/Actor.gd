@@ -3,8 +3,8 @@ extends KinematicBody2D
 
 signal hit
 
-var speed = Vector2(150.0, 350.0)
-onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
+var speed = Vector2(250.0, 200.0)
+var gravity = 300
 var is_attacking = false
 var is_shooting = false
 
