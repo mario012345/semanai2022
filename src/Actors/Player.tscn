@@ -155,7 +155,6 @@ offset = Vector2( 0, -100 )
 current = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -28, 0 )
 shape = SubResource( 14 )
 

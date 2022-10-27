@@ -1,8 +1,6 @@
 # Based on platform2D from Godot
 extends KinematicBody2D
 
-signal hit
-
 var health = 100
 var speed = Vector2.ZERO
 var gravity = 1200

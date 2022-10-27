@@ -1,8 +1,6 @@
 # Based on platform2D from Godot
 extends "res://src/Actors/Actor.gd"
 
-signal collect_coin 
-
 const FLOOR_DETECT_DISTANCE = 20.0
 
 onready var platform_detector = $PlatformDetector
@@ -90,3 +88,7 @@ func calculate_move_velocity(linear_velocity, direction, speed, is_jump_interrup
 
 func _on_AnimatedSprite_animation_finished():
 	is_attacking = false;
+
+func die():
+	hide()
+	$PlayerCollision.set_deferred("disabled", true)
