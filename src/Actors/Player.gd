@@ -4,23 +4,25 @@ signal collect_coin
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
-export(String) var action_suffix = ""
-
 onready var platform_detector = $PlatformDetector
 onready var animated_sprite = $AnimatedSprite
-onready var weapon_timer = $WeaponAnimation
+onready var weapon_timer = $WeaponTimer
 # onready var sound_jump = $Jump
 # onready var gun = sprite.get_node(@"Gun")
 
 func _ready():
-	# Static types are necessary here to avoid warnings.
 	pass
 
+func _process(delta):
+	_physics_process(delta)
+	animation_process()
+	audio_process()
+
 func _physics_process(_delta):
-	# Play jump sound
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		# sound_jump.play()
-		pass
+
+	is_attacking = true if Input.is_action_just_pressed("attack") and is_on_floor() else false
+
+	if is_attacking: weapon_timer.start()
 
 	var direction = get_direction()
 
@@ -42,21 +44,7 @@ func _physics_process(_delta):
 		else:
 			animated_sprite.flip_h = true
 
-	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
-	# bullets forward.
-	# There are many situations like these where you can reuse existing properties instead of
-	# creating new variables.
-	if Input.is_action_just_pressed("attack"):
-		pass
-		# is_attacking = gun.shoot(sprite.scale.x)
-
-	# weapon usage
-	#var animation = get_new_animation(is_shooting)
-	#if animation != animation_player.current_animation and shoot_timer.is_stopped():
-	#	if is_shooting:
-	#		shoot_timer.start()
-	#	animation_player.play(animation)
-	animation_process()
+	yield(weapon_timer, "timeout")
 
 func animation_process():
 	$AnimatedSprite.play()	
@@ -72,13 +60,33 @@ func animation_process():
 		else:
 			animation_name = "jump"
 	if is_attacking:
-		animation_name = "weapon"
+		animation_name = "attack"
 	$AnimatedSprite.animation = animation_name
 
+	# We use the sprite's scale to store Robi’s look direction which allows us to shoot
+	# bullets forward.
+	# There are many situations like these where you can reuse existing properties instead of
+	# creating new variables.
+
+	# weapon usage
+	#var animation = get_new_animation(is_shooting)
+	#if animation != animation_player.current_animation and shoot_timer.is_stopped():
+	#	if is_shooting:
+	#		shoot_timer.start()
+	#	animation_player.play(animation)
+
+func audio_process():
+	# Play jump sound
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		# sound_jump.play()
+		pass
+	if Input.is_action_just_pressed("attack"):
+		# sound_attack.play()
+		pass
+	pass
 
 func get_direction():
 	return Vector2( Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), -1 if is_on_floor() and Input.is_action_just_pressed("jump") else 0)
-
 
 # This function calculates a new velocity whenever you need it.
 # It allows you to interrupt jumps.

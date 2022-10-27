@@ -9,4 +9,4 @@
 position = Vector2( 0, 1 )
 
 [node name="Player" parent="LevelBluePrint" instance=ExtResource( 2 )]
-position = Vector2( -17, -128 )
+position = Vector2( 82, -238 )
