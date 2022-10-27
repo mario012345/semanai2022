@@ -134,6 +134,7 @@ radius = 30.0204
 height = 134.448
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 4
 script = ExtResource( 3 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]

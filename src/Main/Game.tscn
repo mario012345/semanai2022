@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Levels/1/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/ShootingEnemy.tscn" type="PackedScene" id=3]
 
 [node name="Game" type="Node"]
 
@@ -9,3 +10,11 @@
 
 [node name="Player" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 849, 456 )
+
+[node name="ShootingEnemy" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 2948, 195 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="ShootingEnemy2" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 1794, 450 )
+scale = Vector2( 0.5, 0.5 )
