@@ -9,7 +9,11 @@ onready var platform_detector = $PlatformDetector
 onready var animated_sprite = $AnimatedSprite
 onready var weapon_timer = $WeaponTimer
 # onready var sound_jump = $Jump
-# onready var gun = sprite.get_node(@"Gun")
+
+var slice_vel = 200
+
+func _ready():
+	speed = Vector2(250.0, 300.0)
 
 func _physics_process(_delta):
 	var direction = get_direction()
@@ -24,11 +28,10 @@ func _physics_process(_delta):
 	if !is_attacking:
 		_velocity = move_and_slide_with_snap(_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
 	else:
-		if !animated_sprite.flip_h: 
-			_velocity = move_and_slide_with_snap(Vector2(300, 0), snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
+		if !is_flipped: 
+			_velocity = move_and_slide_with_snap(Vector2(slice_vel, 0), snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
 		else:
-			_velocity = move_and_slide_with_snap(Vector2(-300, 0), snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
-		
+			_velocity = move_and_slide_with_snap(Vector2(-slice_vel, 0), snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
 
 	audio_process()
 	animation_process()
@@ -54,8 +57,10 @@ func animation_process():
 	# Flipping character
 	if direction.x != 0:
 		if direction.x > 0:
+			is_flipped = false
 			animated_sprite.flip_h = false
 		else:
+			is_flipped = true
 			animated_sprite.flip_h = true
 
 func audio_process():
