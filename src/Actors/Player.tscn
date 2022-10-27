@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/art/player/idle/idle.1.png" type="Texture" id=1]
 [ext_resource path="res://assets/art/player/idle/idle.4.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/art/player/fall/fall.1.png" type="Texture" id=15]
 [ext_resource path="res://assets/art/player/attack/ataque.1.png" type="Texture" id=16]
 [ext_resource path="res://assets/art/player/attack/ataque.2.png" type="Texture" id=17]
+[ext_resource path="res://assets/audio/sonido_ejemplo.wav" type="AudioStream" id=18]
 
 [sub_resource type="AtlasTexture" id=45]
 flags = 4
@@ -149,6 +150,7 @@ one_shot = true
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -6, 2 )
@@ -165,5 +167,8 @@ rotation = 1.55142
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 49 )
 disabled = true
+
+[node name="ExampleSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
