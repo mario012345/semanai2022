@@ -5,7 +5,7 @@ signal hit
 
 var health = 100
 var speed = Vector2.ZERO
-var gravity = 400
+var gravity = 1200
 var is_attacking = false
 var is_shooting = false
 var is_flipped = false

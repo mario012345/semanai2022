@@ -151,7 +151,7 @@ rotation = -0.0488018
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -6, 2 )
-offset = Vector2( 0, -200 )
+offset = Vector2( 0, -100 )
 current = true
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]

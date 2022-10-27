@@ -13,7 +13,7 @@ onready var weapon_timer = $WeaponTimer
 var slice_vel = 200
 
 func _ready():
-	speed = Vector2(250.0, 300.0)
+	speed = Vector2(200.0, 800.0)
 
 func _physics_process(_delta):
 	var direction = get_direction()
