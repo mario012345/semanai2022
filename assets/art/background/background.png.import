@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ground.3.png-911d3a8b8766df695de649539c706be1.stex"
+path="res://.import/background.png-a3ea5a620ba9fcb638e403ea9a11b249.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/tiles/ground/ground.3.png"
-dest_files=[ "res://.import/ground.3.png-911d3a8b8766df695de649539c706be1.stex" ]
+source_file="res://assets/art/background/background.png"
+dest_files=[ "res://.import/background.png-a3ea5a620ba9fcb638e403ea9a11b249.stex" ]
 
 [params]
 

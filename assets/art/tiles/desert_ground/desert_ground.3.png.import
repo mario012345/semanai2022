@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles_demo.png-9756e9c760a7f29f4b91453b7e40d7a9.stex"
+path="res://.import/desert_ground.3.png-4901585e3205f952afedc040b784f43f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/tiles/tiles_demo.png"
-dest_files=[ "res://.import/tiles_demo.png-9756e9c760a7f29f4b91453b7e40d7a9.stex" ]
+source_file="res://assets/art/tiles/desert_ground/desert_ground.3.png"
+dest_files=[ "res://.import/desert_ground.3.png-4901585e3205f952afedc040b784f43f.stex" ]
 
 [params]
 
