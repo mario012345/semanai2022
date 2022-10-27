@@ -61,12 +61,12 @@ func animation_process():
 		if direction.x > 0:
 			is_flipped = false
 			$PlayerCollision.position.x = -28
-			$WeaponCollision.position.x = 88
+			$WeaponCollision.position.x = 90
 			animated_sprite.flip_h = false
 		else:
 			is_flipped = true
 			$PlayerCollision.position.x = 28
-			$WeaponCollision.position.x = -88
+			$WeaponCollision.position.x = -90
 			animated_sprite.flip_h = true
 
 func audio_process():
