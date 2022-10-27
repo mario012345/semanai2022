@@ -71,13 +71,12 @@ func animation_process():
 
 func audio_process():
 	# Play jump sound
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		# sound_jump.play()
-		pass
-	if Input.is_action_just_pressed("attack"):
-		# sound_attack.play()
-		pass
-	pass
+	if Input.is_action_pressed("jump") and not $ExampleSoundPlayer.playing:
+		$ExampleSoundPlayer.play()
+	elif Input.is_action_pressed("attack") and is_attacking and not $ExampleSoundPlayer.playing:
+		$ExampleSoundPlayer.play()
+	elif (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and not $ExampleSoundPlayer.playing:
+		$ExampleSoundPlayer.play()
 
 func get_direction():
 	return Vector2( Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), -1 if is_on_floor() and Input.is_action_just_pressed("jump") else 0)
