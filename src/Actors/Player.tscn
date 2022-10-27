@@ -101,12 +101,12 @@ region = Rect2( 0, 0, 536, 600 )
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ SubResource( 45 ), SubResource( 46 ) ],
-"loop": true,
+"loop": false,
 "name": "attack",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 47 ) ],
-"loop": true,
+"loop": false,
 "name": "fall",
 "speed": 5.0
 }, {
@@ -116,7 +116,7 @@ animations = [ {
 "speed": 6.0
 }, {
 "frames": [ SubResource( 48 ) ],
-"loop": true,
+"loop": false,
 "name": "jump",
 "speed": 5.0
 }, {
@@ -137,7 +137,7 @@ enabled = true
 collision_mask = 8
 
 [node name="WeaponTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 10.0
 one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -158,3 +158,5 @@ current = true
 visible = false
 position = Vector2( -28, 0 )
 shape = SubResource( 14 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

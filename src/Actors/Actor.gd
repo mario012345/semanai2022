@@ -3,8 +3,9 @@ extends KinematicBody2D
 
 signal hit
 
-var speed = Vector2(250.0, 200.0)
-var gravity = 300
+var health = 100
+var speed = Vector2(250.0, 300.0)
+var gravity = 400
 var is_attacking = false
 var is_shooting = false
 
