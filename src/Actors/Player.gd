@@ -31,12 +31,16 @@ func _physics_process(_delta):
 		else:
 			_velocity = move_and_slide_with_snap(Vector2(-slice_vel, 0), snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
 
+	if !is_attacking:
+		$WeaponCollision.disabled = true
+
 	audio_process()
 	animation_process()
 
 func _input(event):
 	if event.is_action_pressed("attack") && is_on_floor():
 		is_attacking = true
+		$WeaponCollision.disabled = false
 		$AnimatedSprite.play("attack")
 
 func animation_process():
@@ -56,9 +60,13 @@ func animation_process():
 	if direction.x != 0:
 		if direction.x > 0:
 			is_flipped = false
+			$PlayerCollision.position.x = -28
+			$WeaponCollision.position.x = 88
 			animated_sprite.flip_h = false
 		else:
 			is_flipped = true
+			$PlayerCollision.position.x = 28
+			$WeaponCollision.position.x = -88
 			animated_sprite.flip_h = true
 
 func audio_process():
