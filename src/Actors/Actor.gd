@@ -1,12 +1,12 @@
 # Based on platform2D from Godot
 extends KinematicBody2D
 
-signal hit
-
-var speed = Vector2(150.0, 350.0)
-onready var gravity = ProjectSettings.get("physics/2d/default_gravity")
+var health = 100
+var speed = Vector2.ZERO
+var gravity = 1200
 var is_attacking = false
 var is_shooting = false
+var is_flipped = false
 
 const FLOOR_NORMAL = Vector2.UP
 

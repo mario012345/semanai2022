@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle.png-ebb2b46c17dbeb0add100262c86f242f.stex"
+path="res://.import/desert_ground.3.png-4901585e3205f952afedc040b784f43f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/player/idle.png"
-dest_files=[ "res://.import/idle.png-ebb2b46c17dbeb0add100262c86f242f.stex" ]
+source_file="res://assets/art/tiles/desert_ground/desert_ground.3.png"
+dest_files=[ "res://.import/desert_ground.3.png-4901585e3205f952afedc040b784f43f.stex" ]
 
 [params]
 
