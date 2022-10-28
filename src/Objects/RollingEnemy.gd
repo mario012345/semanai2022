@@ -36,3 +36,11 @@ func _physics_process(delta):
 		motion.x = velocity * -1
 		
 	move_and_slide(motion,up)
+
+func _on_RollingEnemyArea_body_entered(body:Node):
+	if body.get_name() == "Player":
+		pass
+		# Kill player
+	else:
+		hide()
+		set_process(false)
