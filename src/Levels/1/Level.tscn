@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/art/tiles/normal_ground/normal_ground.2.png" type="Texture" id=1]
 [ext_resource path="res://assets/art/tiles/normal_ground/normal_ground.1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/art/tiles/desert_ground/desert_ground.3.png" type="Texture" id=6]
 [ext_resource path="res://src/Levels/1/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/background_music.mp3" type="AudioStream" id=8]
+[ext_resource path="res://src/Levels/1/DeathZone.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 32, 128, 32 )
@@ -155,6 +156,8 @@ points = PoolVector2Array( 64, 0, 64, 0, 128, 64, 128, 128, 0, 128, 0, 0 )
 } ]
 5/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=8]
+
 [node name="Level" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -181,3 +184,13 @@ transform = Transform2D( 1, 0, 0, 1, 1000, 100 )
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2( 0, 1200 )
+scale = Vector2( 1000, 1 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_DeathZone_body_entered"]
