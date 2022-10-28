@@ -38,9 +38,6 @@ func _physics_process(delta):
 	move_and_slide(motion,up)
 
 func _on_RollingEnemyArea_body_entered(body:Node):
-	if body.get_name() == "Player":
-		pass
-		# Kill player
-	else:
-		hide()
-		set_process(false)
+	print(body.get_name())
+	if body.get_name() == "Weapon":
+		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/art/enemies/chaman/Ataque_chaman_1.PNG" type="Texture" id=1]
 [ext_resource path="res://assets/art/enemies/chaman/Ataque_chaman_2.PNG" type="Texture" id=2]
@@ -42,11 +42,14 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 141, 218 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 141, 217 )
+
 [sub_resource type="CircleShape2D" id=7]
 radius = 1044.43
 
-[node name="ShootingEnemy" type="Area2D"]
-collision_layer = 2
+[node name="ShootingEnemy" type="KinematicBody2D"]
+position = Vector2( 0, -29 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -61,8 +64,17 @@ position = Vector2( 0, 30 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 6 )
 
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( 0, 30 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -1, -1 )
+shape = SubResource( 8 )
+
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -2, 0 )
@@ -72,8 +84,8 @@ shape = SubResource( 7 )
 wait_time = 3.0
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="_on_ShootingEnemy_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

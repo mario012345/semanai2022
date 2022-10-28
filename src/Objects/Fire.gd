@@ -13,6 +13,7 @@ func _on_Area2D_body_exited(body):
 	Asprite.play("static")
 
 func _on_FireArea_body_entered(body):
-	print(body.get_name())
-	if body.get_name() == "Player":
-		print("Touched spikes")
+	pass
+	#print(body.get_name())
+	#if body.get_name() == "Player":
+	#	print("Touched spikes")
