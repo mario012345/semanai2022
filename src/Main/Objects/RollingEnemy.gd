@@ -34,6 +34,5 @@ func _physics_process(delta):
 		motion.x = 0
 	else:
 		motion.x = velocity * -1
-		ledgeCheck.position.x = -raycast_position * -1
 		
 	move_and_slide(motion,up)
