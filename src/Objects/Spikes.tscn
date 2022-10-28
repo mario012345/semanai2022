@@ -79,12 +79,15 @@ position = Vector2( -4.5, -15 )
 shape = SubResource( 8 )
 
 [node name="SpikesArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShapeSpikes" type="CollisionShape2D" parent="SpikesArea"]
 position = Vector2( -2.5, -36.5 )
 shape = SubResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 9 )

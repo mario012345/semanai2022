@@ -1,5 +1,4 @@
 [gd_scene load_steps=40 format=2]
-
 [ext_resource path="res://assets/art/player/idle/idle.1.png" type="Texture" id=1]
 [ext_resource path="res://assets/art/player/idle/idle.4.png" type="Texture" id=2]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=3]
@@ -132,6 +131,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 67, 124 )
 
+[sub_resource type="RectangleShape2D" id=54]
+extents = Vector2( 66.5, 124.5 )
+
 [sub_resource type="CapsuleShape2D" id=49]
 radius = 30.0204
 height = 134.448
@@ -163,8 +165,15 @@ current = true
 position = Vector2( -28, 0 )
 shape = SubResource( 14 )
 
-[node name="Weapon" type="KinematicBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
+
+[node name="PlayerDeathCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -28.5, 0.5 )
+shape = SubResource( 54 )
+
+[node name="Weapon" type="KinematicBody2D" parent="."]
+collision_mask = 4
 
 [node name="WeaponCollision" type="CollisionShape2D" parent="Weapon"]
 position = Vector2( 90, 0 )
@@ -184,3 +193,4 @@ volume_db = 5.0
 stream = ExtResource( 19 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

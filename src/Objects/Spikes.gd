@@ -13,7 +13,8 @@ func _on_Area2D_body_exited(body):
 	Asprite.play("static")
 
 func _on_SpikesArea_body_entered(body):
-	print(body.get_name())
-	if body.get_name() == "Player":
-		print("Touched spikes")
-		get_tree().reload_current_scene()
+	pass
+	#print(body.get_name())
+	#if body.get_name() == "Player":
+		#print("Touched spikes")
+		#get_tree().reload_current_scene()

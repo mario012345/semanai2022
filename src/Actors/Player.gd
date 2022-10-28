@@ -61,11 +61,13 @@ func animation_process():
 		if direction.x > 0:
 			is_flipped = false
 			$PlayerCollision.position.x = -28
+			$Area2D/PlayerDeathCollision.position.x = -28
 			weapon_collision.position.x = 90
 			animated_sprite.flip_h = false
 		else:
 			is_flipped = true
 			$PlayerCollision.position.x = 28
+			$Area2D/PlayerDeathCollision.position.x = 28
 			weapon_collision.position.x = -90
 			animated_sprite.flip_h = true
 
@@ -98,3 +100,9 @@ func _on_AnimatedSprite_animation_finished():
 func die():
 	hide()
 	$PlayerCollision.set_deferred("disabled", true)
+
+func _on_Area2D_body_entered(body):
+	print("Entra")
+	print(body.get_name())
+	if body:
+		get_tree().reload_current_scene()

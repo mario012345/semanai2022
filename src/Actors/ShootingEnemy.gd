@@ -1,5 +1,4 @@
-#extends "res://src/Actors/Actor.gd"
-extends Area2D
+extends "res://src/Actors/Actor.gd"
 
 onready var bulletScene = preload("res://src/Objects/Bullet.tscn")
 onready var Asprite = $AnimatedSprite
@@ -48,3 +47,8 @@ func _on_ShootingEnemy_body_entered(body):
 		hide()
 		set_process(false)
 		$Timer.stop()
+
+func _on_Area2D2_body_entered(body):
+	print(body.get_name())
+	if body.get_name() == "Weapon":
+		queue_free()
