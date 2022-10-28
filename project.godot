@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="semanai"
-run/main_scene="res://src/Main/Game.tscn"
+run/main_scene="res://src/Menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -38,6 +38,10 @@ version_control_plugin_name="GitAPI"
 [gdnative]
 
 singletons=[  ]
+
+[global]
+
+main=false
 
 [gui]
 
