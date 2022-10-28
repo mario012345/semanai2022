@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://src/Main/Objects/Fire.gd" type="Script" id=1]
+[ext_resource path="res://src/Objects/Fire.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/enemies/static_hazard/Fuego.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=12]

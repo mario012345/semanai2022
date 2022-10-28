@@ -1,7 +1,7 @@
 #extends "res://src/Actors/Actor.gd"
 extends Area2D
 
-onready var bulletScene = preload("res://src/Main/Objects/Bullet.tscn")
+onready var bulletScene = preload("res://src/Objects/Bullet.tscn")
 onready var Asprite = $AnimatedSprite
 
 var player = null
