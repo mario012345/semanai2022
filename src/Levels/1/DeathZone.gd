@@ -20,3 +20,4 @@ func _on_DeathZone_body_entered(body:Node):
 	if body.get_name() == "Player":
 		print("Player dies")
 		# Kill player
+		get_tree().reload_current_scene()
