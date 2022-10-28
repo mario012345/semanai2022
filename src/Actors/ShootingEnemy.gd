@@ -1,4 +1,5 @@
-extends "res://src/Actors/Actor.gd"
+#extends "res://src/Actors/Actor.gd"
+extends Area2D
 
 onready var bulletScene = preload("res://src/Main/Objects/Bullet.tscn")
 onready var Asprite = $AnimatedSprite
@@ -8,10 +9,6 @@ var move = Vector2()
 var distance = 0
 
 const up = Vector2(0,-1)
-
-func _physics_process(delta):
-	move.y += gravity
-	move_and_slide(move,up)
 
 func _on_Area2D_body_entered(body):
 	if body != self:
@@ -42,3 +39,12 @@ func _on_Timer_timeout():
 
 func _on_AnimatedSprite_animation_finished():
 	Asprite.play("idle")
+
+func _on_ShootingEnemy_body_entered(body):
+	if body.get_name() == "Player":
+		pass
+		# Kill player
+	else:
+		hide()
+		set_process(false)
+		$Timer.stop()

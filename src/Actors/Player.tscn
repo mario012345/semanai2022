@@ -157,18 +157,21 @@ position = Vector2( -6, 2 )
 offset = Vector2( 0, -100 )
 current = true
 
+[node name="ExampleSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -28, 0 )
 shape = SubResource( 14 )
 
-[node name="WeaponCollision" type="CollisionShape2D" parent="."]
+[node name="Weapon" type="KinematicBody2D" parent="."]
+collision_mask = 2
+
+[node name="WeaponCollision" type="CollisionShape2D" parent="Weapon"]
 position = Vector2( 90, 0 )
 rotation = 1.55142
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 49 )
 disabled = true
-
-[node name="ExampleSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

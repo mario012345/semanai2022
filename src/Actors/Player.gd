@@ -6,6 +6,7 @@ const FLOOR_DETECT_DISTANCE = 20.0
 onready var platform_detector = $PlatformDetector
 onready var animated_sprite = $AnimatedSprite
 onready var weapon_timer = $WeaponTimer
+onready var weapon_collision = $Weapon.get_children()[0]
 # onready var sound_jump = $Jump
 
 var slice_vel = 200
@@ -32,7 +33,7 @@ func _physics_process(_delta):
 			_velocity = move_and_slide_with_snap(Vector2(-slice_vel, 0), snap_vector, FLOOR_NORMAL, not is_on_platform, 4, 0.9, false)
 
 	if !is_attacking:
-		$WeaponCollision.disabled = true
+		weapon_collision.disabled = true
 
 	audio_process()
 	animation_process()
@@ -40,7 +41,7 @@ func _physics_process(_delta):
 func _input(event):
 	if event.is_action_pressed("attack") && is_on_floor():
 		is_attacking = true
-		$WeaponCollision.disabled = false
+		weapon_collision.disabled = false
 		$AnimatedSprite.play("attack")
 
 func animation_process():
@@ -61,12 +62,12 @@ func animation_process():
 		if direction.x > 0:
 			is_flipped = false
 			$PlayerCollision.position.x = -28
-			$WeaponCollision.position.x = 90
+			weapon_collision.position.x = 90
 			animated_sprite.flip_h = false
 		else:
 			is_flipped = true
 			$PlayerCollision.position.x = 28
-			$WeaponCollision.position.x = -90
+			weapon_collision.position.x = -90
 			animated_sprite.flip_h = true
 
 func audio_process():

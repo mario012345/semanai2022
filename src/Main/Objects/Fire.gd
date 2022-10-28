@@ -16,4 +16,3 @@ func _on_FireArea_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "Player":
 		print("Touched spikes")
-		get_tree().reload_current_scene()
