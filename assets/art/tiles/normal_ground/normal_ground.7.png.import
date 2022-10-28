@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ataque.1.png-c1530b4211ce942861c2e466b1a819c1.stex"
+path="res://.import/normal_ground.7.png-c315f0747b7a061c38740f22bbae85ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/player/attack/ataque.1.png"
-dest_files=[ "res://.import/ataque.1.png-c1530b4211ce942861c2e466b1a819c1.stex" ]
+source_file="res://assets/art/tiles/normal_ground/normal_ground.7.png"
+dest_files=[ "res://.import/normal_ground.7.png-c315f0747b7a061c38740f22bbae85ce.stex" ]
 
 [params]
 

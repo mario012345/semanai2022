@@ -15,24 +15,24 @@
 [ext_resource path="res://assets/art/player/walk/walk.3.png" type="Texture" id=13]
 [ext_resource path="res://assets/art/player/walk/walk.7.png" type="Texture" id=14]
 [ext_resource path="res://assets/art/player/fall/fall.1.png" type="Texture" id=15]
-[ext_resource path="res://assets/art/player/attack/ataque.1.png" type="Texture" id=16]
-[ext_resource path="res://assets/art/player/attack/ataque.2.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/player/attack/attack.1.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/player/attack/attack.2.png" type="Texture" id=17]
 [ext_resource path="res://assets/audio/sonido_ejemplo.wav" type="AudioStream" id=18]
 
-[sub_resource type="AtlasTexture" id=45]
+[sub_resource type="AtlasTexture" id=50]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 544, 602 )
 
-[sub_resource type="AtlasTexture" id=46]
+[sub_resource type="AtlasTexture" id=51]
 flags = 4
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 544, 602 )
 
-[sub_resource type="AtlasTexture" id=47]
+[sub_resource type="AtlasTexture" id=52]
 flags = 4
 atlas = ExtResource( 15 )
-region = Rect2( 0, 0, 569, 745 )
+region = Rect2( 0, 0, 536, 600 )
 
 [sub_resource type="AtlasTexture" id=33]
 flags = 4
@@ -54,10 +54,10 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 500, 600 )
 
-[sub_resource type="AtlasTexture" id=48]
+[sub_resource type="AtlasTexture" id=53]
 flags = 4
 atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 569, 745 )
+region = Rect2( 0, 0, 536, 600 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 4
@@ -101,12 +101,12 @@ region = Rect2( 0, 0, 536, 600 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 45 ), SubResource( 46 ) ],
+"frames": [ SubResource( 50 ), SubResource( 51 ) ],
 "loop": false,
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 47 ) ],
+"frames": [ SubResource( 52 ) ],
 "loop": false,
 "name": "fall",
 "speed": 5.0
@@ -116,7 +116,7 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 48 ) ],
+"frames": [ SubResource( 53 ) ],
 "loop": false,
 "name": "jump",
 "speed": 5.0
@@ -149,7 +149,7 @@ one_shot = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "attack"
 frame = 1
 
 [node name="Camera" type="Camera2D" parent="."]

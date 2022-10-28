@@ -4,17 +4,32 @@
 [ext_resource path="res://assets/art/background/background.png" type="Texture" id=2]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-scroll_base_scale = Vector2( 0.2, 1 )
 
 [node name="Background" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
 
 [node name="Sprite" type="Sprite" parent="Background"]
-scale = Vector2( 10, 4 )
+scale = Vector2( 10, 6 )
 texture = ExtResource( 2 )
 
 [node name="Foreground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
 
 [node name="Sprite" type="Sprite" parent="Foreground"]
-position = Vector2( 6.00016, 9.49997 )
-scale = Vector2( 3.6375, 1.46944 )
+position = Vector2( -1017, 485 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+offset = Vector2( 2034, -370 )
+
+[node name="Sprite2" type="Sprite" parent="Foreground"]
+position = Vector2( -3134, 250 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( 2034, -370 )
+flip_h = true
+
+[node name="Sprite3" type="Sprite" parent="Foreground"]
+position = Vector2( 779, 264 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( 2034, -370 )

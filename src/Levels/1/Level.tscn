@@ -170,7 +170,7 @@ tile_data = PoolIntArray( -65537, 6, 0, -131072, 9, 0, -1, 6, 0, -65536, 9, 0, 6
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Platforms" type="Node" parent="."]
+[node name="Objects" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
 
