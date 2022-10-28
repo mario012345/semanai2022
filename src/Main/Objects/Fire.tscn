@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/Main/Objects/Fire.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/enemies/static_hazard/Fuego.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 768, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1152, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1536, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1920, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 2304, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 2688, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 3072, 0, 384, 216 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 384, 216 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 21 ) ],
+"loop": true,
+"name": "static",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 89.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 50.5, 32.5 )
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 288.028
+
+[node name="Fire" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -139 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 7 )
+animation = "static"
+playing = true
+
+[node name="Base" type="CollisionShape2D" parent="."]
+position = Vector2( -4.5, -15 )
+shape = SubResource( 8 )
+
+[node name="FireArea" type="Area2D" parent="."]
+
+[node name="CollisionShapeFire" type="CollisionShape2D" parent="FireArea"]
+position = Vector2( -2.5, -36.5 )
+shape = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 9 )
+
+[connection signal="body_entered" from="FireArea" to="." method="_on_FireArea_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
